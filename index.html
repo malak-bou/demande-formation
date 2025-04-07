@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="demande.css">
+  <title>Demande de Formation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="upbar">
+
+            <img src="picture/menuicon.svg" onclick="toggleSidebar()"  class="menuicon">
+          
+          <a href="#" id="profile-link">
+            <img src="picture/profil-pic.png" class="profileimg" >
+          </a>
+
+    </header>
+    <h3 style="text-align:center;">Sélectionner le département pour voir la demande de formation.</h3>
+    <h2 style="text-align:center;margin:10px 0;">Les demandes des Formations</h2>
+  
+
+  <section class="departments">
+    <button data-dept="IT" class="dept-btn">IT<span class="badge"></span></button>
+    <button data-dept="RH" class="dept-btn">RH <span class="badge"></span></button>
+    <button data-dept="Marketing" class="dept-btn">Marketing <span class="badge"></span></button>
+    <button data-dept="Network" class="dept-btn">Network <span class="badge"></span></button>
+    <button data-dept="Underwriting" class="dept-btn">Underwriting <span class="badge"></span></button>
+    <button data-dept="Legal and Compliance" class="dept-btn">Legal and Compliance <span class="badge"></span></button>
+    <button data-dept="Business Development" class="dept-btn">Business Development <span class="badge"></span></button>
+    <button data-dept="Claims" class="dept-btn">Claims <span class="badge"></span></button>
+    <button data-dept="Reinsurance" class="dept-btn">Reinsurance <span class="badge"></span></button>
+    <button data-dept="Prevention" class="dept-btn">Prevention <span class="badge"></span></button>
+    <button data-dept="Finance & Accounting" class="dept-btn">Finance & Accounting <span class="badge"></span></button>
+    <button data-dept="Quality & Internal Control" class="dept-btn">Quality & Internal Control <span class="badge"></span></button>
+    <button data-dept="Executive Management" class="dept-btn">Executive Management <span class="badge"></span></button>
+    <button data-dept="Center Regional Delegation" class="dept-btn">Center Regional Delegation <span class="badge"></span></button>
+  </section>
+
+  <section class="request">
+    <div class="demandes">
+      <i class="fas fa-circle-chevron-left icon"  id="prevBtn" ></i> 
+      <h3 style="text-align:center;" id="demandeTitle">Demande 1</h3>
+      <i class="fas fa-circle-chevron-right icon" id="nextBtn"></i> 
+    </div>
+    <div class="request-box">
+        <div class="DEPARTEMENT-TYPE-container">
+            <div class="DEPARTEMENT-TYPE">
+            <p><strong id="department">Département IT</strong></p>
+            </div>
+        </div>
+        <div class="information">
+            <p><strong>Professeur :</strong><span id="prof"> Azouzi Alaa</span></p>
+            <p class="center"><strong>Nom de cour :</strong><span id="course"> Dev web using python </span></p>
+            <p><strong>Date :</strong> <span id="date">17/02/2025</span> </p>
+            <p><strong>Type de cour :</strong><span id="type"> Enligne </span></p>
+        </div>
+      <div class="button-container">
+        <button id="messageBtn">Message</button>
+        <button class="Ajoute-button" onclick="toggleSections()">Ajouter</button>
+      </div>
+    </div>
+  </section>
+  <div class="text-container hidden-section" >
+    <p class="t">Les jours en bleu sont réservés pour d'autres formations du Département.</p>
+    <p class="t">Si le jour est réservé, informez le professeur qui a fait la demande
+        et fournissez-lui les jours non réservés par message .</p>
+    <p class="t">Sinon, sélectionnez le jour pour ajouter la formation au calendrier du département.</p>
+  </div>
+  <section class="calendar-section hidden-section">
+    <div class="calendar-S">
+      <h4 style="text-align:center;">Sélectionner le jour</h4>
+      <div class="wrapper">
+        <header>
+          <p class="current-date"></p>
+          <div class="icons">
+            <span style="display: inline-flex; align-items: center; justify-content: center;"id="prev"><i class="fas fa-chevron-left icon" style="color: gray;font-size: 25px;"></i></span>
+            
+            <span style="display: inline-flex; align-items: center; justify-content: center;" id="next"><i class="fas fa-chevron-right icon" style="color: gray;font-size: 25px;" ></i></span>
+          </div>
+        </header>
+        <div class="calendar">
+          <ul class="weeks">
+            <li>Sun</li>
+            <li>Mon</li>
+            <li>Tue</li>
+            <li>Wed</li>
+            <li>Thu</li>
+            <li>Fri</li>
+            <li>Sat</li>
+          </ul>
+          <ul class="days"></ul>
+        </div>
+      </div>
+      <div class="buttons-calendar">
+      <button class="Annuler-button">Annuler</button>
+      <button id="messagebtn2">Message</button>
+      
+     </div>
+    </div>
+    <div class="info">
+      <h4>Formation Information</h4>
+      <p class="space"><strong>Professeur :</strong> Azouzi Alaa</p>
+      <p class="space"><strong>Nom de cour :</strong> Dev web using python</p>
+      <p class="space"><strong>Date :</strong> 17/02/2025</p>
+      <p class="space"><strong>Type :</strong> Enligne</p>
+      <button class="Annuler-button" >Annuler</button>
+      <button class="Ajoute-button" id="addDayBtn">Ajouter</button>
+    </div>
+  </section>
+
+  <section class="message-section hidden-section">
+    <h4 style="text-align:center;">Entrez votre message ici pour informer le professeur</h4>
+    <textarea placeholder="Enter votre message"></textarea>
+    <button class="Ajoute-button">Envoyer</button>
+  </section>
+
+  <footer>
+    <p>©2025 – GIG.DZ – GULF INSURANCE GROUP – Tous droits réservés.</p>
+    <p>01, Rue de Tripoli Hussein-Dey Alger. Hussein - Dey 16040 – Alger.</p>
+  </footer>
+  <script src="demande.js"></script>
+</body>
+</html>
